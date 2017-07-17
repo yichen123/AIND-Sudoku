@@ -3,13 +3,12 @@
 
 # Question 1 (Naked Twins)
 Q: How do we use constraint propagation to solve the naked twins problem?  
-A: When we have boxes with the same candidates in a unit, and the number of such boxes is equal to the number of candidates. Then we can sure those candidates will only appear within those boxes, and can safely elimination those candidates in other boxes in this unit.
+A: When we find two boxes with the exact same two candidates in a unit, then we can be sure that those two digits will only appear in those two boxes. For example, if the first digit is in the first boxes, then by elimination, the second boxes must have the second digit, and visa verse. This means either way, these two digits cannot appear in other boxes in this unit, and a new constraint is introduced to other boxes. Therefore we can safely remove those two candidates in other boxes in this unit.
 
-Naked Twins technique will be used in the reduce_puzzle step after elimination and only_choice, which can reduce our searching space, and reduce the computation cost.
 
 # Question 2 (Diagonal Sudoku)
 Q: How do we use constraint propagation to solve the diagonal sudoku problem?  
-A: We just add two diagonal units into the unit lists, and our system will do the rest jobs.
+A: We introduce two diagonal units into our solver that each digit in same diagonal unit can only appear once, so that for avoiding contradictions, those two constraint will further reduce the searching space that we need to explore.
 
 ### Install
 
